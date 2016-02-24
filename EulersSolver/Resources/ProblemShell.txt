@@ -1,0 +1,23 @@
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+namespace EulersSolver.Problems
+{
+    internal class Problem$num$ : BaseProblem
+    {
+        protected override int ProblemNumber => $num$;
+        protected override bool HasBeenSolved => false;
+
+        protected override void Solve()
+        {
+            /*
+            
+            */
+
+            Initialize();
+            int answer = 1;
+            Finalize(answer);
+        }
+    }
+}

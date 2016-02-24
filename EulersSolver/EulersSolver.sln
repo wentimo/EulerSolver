@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EulersProblems", "EulersSolver\EulersProblems.csproj", "{6DA48B22-9F2A-4648-9B59-24F66CDAA55C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{D7046CE0-942D-48F7-982B-8D4AB7A9D829}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\App.config = Resources\App.config
+		Resources\p054_poker.txt = Resources\p054_poker.txt
+		Resources\p067_triangle.txt = Resources\p067_triangle.txt
+		Resources\p096_sudoku.txt = Resources\p096_sudoku.txt
+		Resources\problem11.txt = Resources\problem11.txt
+		Resources\problem13.txt = Resources\problem13.txt
+		Resources\problem18.txt = Resources\problem18.txt
+		Resources\problem18test.txt = Resources\problem18test.txt
+		Resources\ProblemShell.txt = Resources\ProblemShell.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DA48B22-9F2A-4648-9B59-24F66CDAA55C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA48B22-9F2A-4648-9B59-24F66CDAA55C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA48B22-9F2A-4648-9B59-24F66CDAA55C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA48B22-9F2A-4648-9B59-24F66CDAA55C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
