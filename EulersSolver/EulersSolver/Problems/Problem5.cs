@@ -22,16 +22,20 @@ namespace EulersSolver.Problems
 
             Initialize();
 
-            var count = 20;
+            var z = 29;
 
-            while (!Div1through20(count)) count += 20;         
+            var isPrime = MakeSieve(z);
+            var count = Enumerable.Range(1, z).Where(x => isPrime[x]).Select(x => (BigInteger)x).Product();
+            var itr = count;
 
-            Finalize(count);
+            while (!Div1throughN(itr, z)) itr += count;         
+
+            Finalize(itr);
         }     
 
-        bool Div1through20 (BigInteger value)
+        bool Div1throughN (BigInteger value, int n)
         {
-            for (BigInteger i = 19; i >= 2; i--)
+            for (BigInteger i = n; i >= 2; i--)
             {
                 if (value % i != 0)
                 {

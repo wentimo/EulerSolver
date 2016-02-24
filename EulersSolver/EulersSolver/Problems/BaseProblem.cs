@@ -18,6 +18,17 @@ namespace ExtensionMethods
             return (int)Math.Ceiling(Math.Sqrt((double)integer));
         }
 
+        public static BigInteger Product(this IEnumerable<BigInteger> enumeration)
+        {
+            BigInteger product = 1;
+           // enumeration.ForEach(number => product *= number);
+            foreach (var number in enumeration)
+            {
+                product = product * number;
+            }
+            return product;
+        }
+
         public static void ForEach<T>(this IEnumerable<T> enumeration, Action<T> action)
         {
             foreach (var number in enumeration)
