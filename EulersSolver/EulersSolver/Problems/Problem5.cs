@@ -9,9 +9,7 @@ namespace EulersSolver.Problems
     internal class Problem5 : BaseProblem
     {
         protected override int ProblemNumber => 5;
-
         protected override bool HasBeenSolved => true;
-        //TODO
 
         protected override void Solve()
         {

@@ -21,6 +21,7 @@ namespace EulersSolver.Problems
             */
 
             Initialize();
+            // I honestly remember how to solve this type of problem from combinatorics class. Lucky!
             BigInteger answer = bigFactorial(40) / (bigFactorial(20) * bigFactorial(20));
             Finalize(answer);
         }

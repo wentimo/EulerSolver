@@ -4,6 +4,7 @@ using System.Numerics;
 using System.Text;
 using ExtensionMethods;
 using System;
+using System.Diagnostics;
 
 namespace EulersSolver.Problems
 {
@@ -29,24 +30,49 @@ namespace EulersSolver.Problems
             Let T(n) be the number of 10-substring-friendly numbers from 1 to 10^n (inclusive).
             For example T(2) = 9 and T(5) = 3492.
 
-            Find T(1018) mod 1 000 000 007.
+            Find T(10^18) mod 1 000 000 007.
             */
 
             Initialize();
             //Enumerable.Range(1, 10).ForEach(x => DebugLog($"T({x}) = {T(x)}"));
 
+            //var watch = new Stopwatch();
+            //watch.Start();
+
+            //int i = 0;
+            //for (i = 7; i <= 7; i++)
+            //{
+            //    var count = T(i);
+            //    watch.Stop();
+            //    DebugLog($"T({i}) = {count,5}, Time = {watch.ElapsedMilliseconds} ms");
+            //    watch.Reset();
+            //    watch.Start();
+            //}
+
+
             //var x = isNumber10Friendly(1819);
             //DebugLog($"T(2) = {T(2)}");
             //DebugLog($"T(3) = {T(3)}");
-            DebugLog($"T(4) = {T(4)}");
-            DebugLog($"T(5) = {T(5)}");
-            DebugLog($"T(6) = {T(6)}");
-           // DebugLog($"T(7) = {T(7)}");
+            //DebugLog($"T(4) = {T(4)}");
+            //DebugLog($"T(5) = {T(5)}");
+            //DebugLog($"T(6) = {T(6)}");
+            //DebugLog($"T(7) = {T(7)}");
             //DebugLog($"T(6) = {T(6)}");
             //var answer = T(5);
-            //var x = isNumber10Friendly(3523014);
-            Finalize(1);
 
+            Console.WriteLine("Enter the number:");
+            var num = Console.ReadLine();
+          //  while (num != "Q")
+            {
+                int number = int.Parse(num);
+                var test = isNumber10Friendly(number);
+                DebugLog(test);
+                test = isNumber10Friendly(number, true);
+                DebugLog(test);
+               // num = Console.ReadLine();
+            }
+
+            Finalize(1);
         }
 
         static int T(int pow)
@@ -62,22 +88,36 @@ namespace EulersSolver.Problems
             return count;
         }
 
-        static bool isNumber10Friendly(int num)
+        static bool isNumber10Friendly(int num, bool assumeRight = false)
         {
+            DebugLog(num);
             var number = digitArr(num);
 
             var increment = 0;
-            for (int i = 0; i < number.Length; i += increment > 0 ? increment : 1)
+            for (int i = 0; i < number.Length; i += increment > 0 ? (increment + 1) : 1)
             {
-                if (!is10Friendly(number, i, 0, 0, ref increment))
+                if (assumeRight)
                 {
-                    // DebugLog($" {num} 10Friendly? False");
-                   // DebugLog($"not 10 friendly on digit {number[i]} of 3523014");
-                    return false;
+                    if (!is10Friendly(number, i, 0, 1, ref increment))
+                    {
+                        // DebugLog($" {num} 10Friendly? False");
+                        // DebugLog($"not 10 friendly on digit {number[i]} of 3523014");
+                        return false;
+                    }
                 }
+                else
+                {
+                    if (!is10Friendly(number, i, 1, 0, ref increment))
+                    {
+                        // DebugLog($" {num} 10Friendly? False");
+                        // DebugLog($"not 10 friendly on digit {number[i]} of 3523014");
+                        return false;
+                    }
+                }
+                
             }
 
-            DebugLog($"{num}");
+            //DebugLog($"{num}");
             return true;
         }
 
@@ -85,16 +125,20 @@ namespace EulersSolver.Problems
         {
             // SLR stands for START LEFT RIGHT
             // SLR (1, 0, 0) Means START = 1, LEFT = 0, RIGHT = 0, start is 0-indexed
-            // var output = "";
-            // number.Skip(startIndex - left).Take(right + left + 1).ForEach(x => output += x);
-
-            //DebugLog($"Called Is10Friendly({startIndex},{left},{right}) : {output}");
+             var output = "";
+             number.Skip(startIndex - left).Take(right + left + 1).ForEach(x => output += x);
+            var str = "";
+            number.ForEach(num => str += num.ToString());
+            DebugLog($"Called Is10Friendly({startIndex},{left},{right}) : {output, -7}, {str}");
 
             //var list = new List<int>();
 
             //3523014
-            // SLR (5,3,0) 35"2301"4
-            // SLR (5,3,1) 35"23014"
+            // SLR (0,0,1) "35"230149
+            // SLR (1,0,2) "352"30149 
+
+            // SLR (2,0,5) 35"23014"9
+            // SLR (7,1,0) 352301"49"
 
             // list.AddRange(number.Skip(startIndex - left).Take(left + right + 1));
 
@@ -106,6 +150,10 @@ namespace EulersSolver.Problems
 
             if (sum < 10)
             {
+
+                //  SLR (0, 0, 0) 3"5230149" 
+                //  SLR (1, 0, 0) - SLR (1, 0, 6)
+                //  SLR (7, 0, 0) 3523014"9"
                 if (startIndex - left > 0 || startIndex + right == number.Length)
                 {
                     var FriendlyTotheLeft = is10Friendly(number, startIndex, left + 1, right, ref increment);
@@ -126,7 +174,7 @@ namespace EulersSolver.Problems
                         return is10Friendly(number, startIndex, left + 1, right, ref increment);
                     }
 
-                    return is10Friendly(number, startIndex, left, right + 1, ref increment);
+                    return FriendlyTotheRight;
                 }
                 else
                 {

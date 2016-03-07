@@ -20,7 +20,7 @@ namespace EulersSolver
         public static void Main(string[] args)
         {
             if (args == null) throw new ArgumentNullException(nameof(args));
-            var verbose = false;
+            var verbose = true;
             var value = 0;
             var userInput = Prompt(PromptString);
 

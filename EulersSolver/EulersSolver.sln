@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{D7046CE0-942D-48F7-982B-8D4AB7A9D829}"
 	ProjectSection(SolutionItems) = preProject
 		Resources\App.config = Resources\App.config
+		Resources\p022_names.txt = Resources\p022_names.txt
 		Resources\p054_poker.txt = Resources\p054_poker.txt
 		Resources\p067_triangle.txt = Resources\p067_triangle.txt
 		Resources\p096_sudoku.txt = Resources\p096_sudoku.txt

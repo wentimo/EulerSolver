@@ -18,10 +18,14 @@ namespace ExtensionMethods
             return (int)Math.Ceiling(Math.Sqrt((double)integer));
         }
 
+        public static int sqrt2(int x)
+        {
+            return 0;
+        }
+
         public static BigInteger Product(this IEnumerable<BigInteger> enumeration)
         {
             BigInteger product = 1;
-           // enumeration.ForEach(number => product *= number);
             foreach (var number in enumeration)
             {
                 product = product * number;
@@ -36,7 +40,7 @@ namespace ExtensionMethods
                 action?.Invoke(number);
             }
         }
-
+        
         public static string RemoveSpaces(this string str)
         {
             return Regex.Replace(str, @"\s+", "");
@@ -368,13 +372,31 @@ namespace EulersSolver.Problems
         }
 
         /// <summary>
+        /// Resets the internal clock timer and acts like a solution's been done but sends answer to the debug log instead of the console.
+        /// You can then do another solution. For debugging and timing purposes. I use this to compare the speed of implentations vs each other 
+        /// across varying ranges.
+        /// </summary>
+        protected void DebugLog_TimerReset(object answer, bool reset = true)
+        {
+            _stopWatch.Stop();
+            this.Answer = answer.ToString();
+            this.DurationInMilliseconds = _stopWatch.ElapsedMilliseconds;
+            DebugLog($"{this.Answer}, Duration: {this.DurationInMilliseconds} milliseconds");
+            if (reset)
+            {
+                _stopWatch.Reset();
+                _stopWatch.Start();
+            }
+        }
+
+        /// <summary>
         /// Ends the stopwatch and displays the answer as well as the amount of time it took to complete in milliseconds.
         /// </summary>
         /// <param name="answer">The value to display as the answer to the Euler's problem</param>
         protected void Finalize(object answer)
         {
             _stopWatch.Stop();
-            this.Answer = answer.ToString();
+            this.Answer = answer.ToString(); 
             this.DurationInMilliseconds = _stopWatch.ElapsedMilliseconds;
             Logger.DumpLog();
         }
