@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6DA48B22-9F2A-4648-9B59-24F66CDAA55C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EulersSolver</RootNamespace>
+    <AssemblyName>EulersSolver</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EulersSolver.cs" />
+    <Compile Include="Extensions\MyExtensions.cs" />
+    <Compile Include="MyMath\CustomMath.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem20.cs" />
+    <Compile Include="Problems\BaseProblem.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem1.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem10.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem11.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem12.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem13.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem14.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem15.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem16.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem17.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem18.cs" />
+    <Compile Include="Problems\1-100\10-19\Problem19.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem2.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem21.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem22.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem23.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem24.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem25.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem26.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem27.cs" />
+    <Compile Include="Problems\1-100\20-29\Problem29.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem3.cs" />
+    <Compile Include="Problems\1-100\30-39\Problem30.cs" />
+    <Compile Include="Problems\1-100\30-39\Problem32.cs" />
+    <Compile Include="Problems\1-100\30-39\Problem33.cs" />
+    <Compile Include="Problems\1-100\30-39\Problem34.cs" />
+    <Compile Include="Problems\1-100\30-39\Problem35.cs" />
+    <Compile Include="Problems\1-100\30-39\Problem36.cs" />
+    <Compile Include="Problems\1-100\30-39\Problem37.cs" />
+    <Compile Include="Problems\1-100\30-39\Problem38.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem4.cs" />
+    <Compile Include="Problems\1-100\40-49\Problem40.cs" />
+    <Compile Include="Problems\1-100\40-49\Problem41.cs" />
+    <Compile Include="Problems\1-100\40-49\Problem49.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem5.cs" />
+    <Compile Include="Problems\1-100\50-59\Problem50.cs" />
+    <Compile Include="Problems\100+\Problem518.cs" />
+    <Compile Include="Problems\100+\Problem529.cs" />
+    <Compile Include="Problems\1-100\50-59\Problem54.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem6.cs" />
+    <Compile Include="Problems\1-100\60-69\Problem67.cs" />
+    <Compile Include="Problems\1-100\60-69\Problem68.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem7.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem8.cs" />
+    <Compile Include="Problems\1-100\1-9\Problem9.cs" />
+    <Compile Include="ProblemTester.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\App.config">
+      <Link>App.config</Link>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

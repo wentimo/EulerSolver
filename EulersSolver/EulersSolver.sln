@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EulersProblems", "EulersSolver\EulersProblems.csproj", "{6DA48B22-9F2A-4648-9B59-24F66CDAA55C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems", "EulersSolver\Problems.csproj", "{6DA48B22-9F2A-4648-9B59-24F66CDAA55C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{D7046CE0-942D-48F7-982B-8D4AB7A9D829}"
 	ProjectSection(SolutionItems) = preProject
