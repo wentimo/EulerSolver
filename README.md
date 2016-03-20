@@ -1,27 +1,21 @@
 # EulerSolver
-Personal Project to solve (at least) the first 50 Eulers Problems in C#
+Project to streamline solving Eulers Problems in C#
 
 This is a console application I wrote as a framework to help me solve Eulers problems without having to go through
-a bunch of repetitive hassle. All you have to do to add or remove already existing 'solution's is to go into the 
-Problems folder of the project. Each file represents the solution to a eulers problem. Problem1.cs is the solution
-for Eulers Problem #1. You can delete everything here except BaseProblem.cs and add your own Solutions via
-the create command on the console application. Alternatively you can just look at the required structure from 
-ProblemShell.cs in the Resources folder and add it however it however you want.
-
-After solving a problem be sure to swap the abstract property HasBeenSolved to true.
+a bunch of repetitive hassle. Problem solutions sit in Problem class files inside of the Problem folder. Each Solution is a Class
+file that inherits from BaseProblem. You can create a Problem class file by using the CREATE command. You can customize your own
+solutions. 
 
 HOW TO USE:
-Compile and run. These are the following options:
+Compile and run. These are the following command
 
 Enter a #:
-1 For example. Just type in 1 and it will solve Euler Problem #1 (assuming it's been solved and added). 
-The output comes in a brief and verbose mode.
+If a Problem class file has been added to the solution you can simply enter it's number to see the solution. The solver will run that Problem's implementation of Solve() and the answer will be output. If verbose mode is enabled you will see the answer as well as how many ticks it took to solve.
 
 Create: 
-Create a shell Problem class file. Type create, 25 to create Problem25.cs. This file should be saved to the
+Create a shell Problem class file. Type create 25 to create Problem25.cs. This file should be saved to the
 Problem folder of the project. The default save location should be appropriate folder. Once the file has been
-saved, close the executable and add the project class file to the project. You can now write your solution
-in the Problem25.cs file between the Initialize() and Finalize() methods.
+saved, close the executable and add the project class file to the project. You can now implement Solve()
 
 Q
 Quit: Exit the program.
@@ -34,6 +28,9 @@ Clear the screen.
 
 D
 Debug: Shows the debug log of the last problem that was ran.
+d 25: See the Debug log for Problem 25's debug text file if it exists. Not all implementations of Solve() display something to the DebugLog() by default. You can add your own lines by adding DebugLogger.AddLine() anywhere in the Problem class files.
 
 V
-Verbose: Active or deactivate verbose mode.
+Toggle verbose mode.
+
+Any questions/comments/suggestions/feedback can be sent to wentimo@gmail.com
