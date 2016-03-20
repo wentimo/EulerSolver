@@ -33,7 +33,7 @@ namespace EulersSolver.Problems
 
             Ben.Sort();
 
-            EulersLogger.DebugLog(Ben[999999]);
+            DebugLogger.AddLine(Ben[999999]);
 
             //int answer = 1;
             return Ben[999999].ToString();

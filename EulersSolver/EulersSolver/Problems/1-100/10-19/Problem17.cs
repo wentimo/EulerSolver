@@ -23,7 +23,7 @@ namespace EulersSolver.Problems
 
             var sstring = string.Join(",", int_Words);
 
-            EulersLogger.DebugLog(sstring);
+            DebugLogger.AddLine(sstring);
             return sstring.Count(char.IsLetterOrDigit).ToString();
         }
 

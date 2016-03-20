@@ -40,7 +40,7 @@ namespace EulersSolver.Problems
                     var matchValues = obj.Where(x => x.Sorted == sortValue).Select(x => x.Value).ToList();
                     var stringValues = matchValues.Select(x => x.ToString()).ToList();
                     string output = $"{sortValue,4} - {count} = [{String.Join(",", stringValues)}]\n";
-                    EulersLogger.DebugLog(output);
+                    DebugLogger.AddLine(output);
                 }
             }
 

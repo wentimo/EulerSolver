@@ -8,18 +8,20 @@ namespace EulersSolver.Extensions
 {
     public static class MyExtensions
     {
+        /// <summary>
+        ///  Gets the square root of an integer
+        /// </summary>
+        /// <param name="integer"></param>
+        ///  <example> Sqrt(8) = 3, Sqrt(9) = 3, Sqrt(10) = 4 </example>
         public static int Sqrt(this int integer)
         {
             return (int)Math.Ceiling(Math.Sqrt((double)integer));
         }
 
-        public static BigInteger Factorial(this BigInteger integer)
-        {
-            if (integer <= 1)
-                return 1;
-            return integer * Factorial(integer - 1);
-        }
-
+        /// <summary>
+        /// Returns the product of the IEnumerable<BigInteger> passed
+        /// </summary>
+        /// <param name="enumeration"></param>
         public static BigInteger Product(this IEnumerable<BigInteger> enumeration)
         {
             if (enumeration.Any(x => x == 0)) return 0;
@@ -32,17 +34,18 @@ namespace EulersSolver.Extensions
             return product;
         }
 
+        /// <summary>
+        /// Allows us to use ForEach over an enumeration
+        /// </summary>
+        /// <typeparam name="T">type of enumeration</typeparam>
+        /// <param name="enumeration">action to perform on each instance</param>
+        /// <param name="action">action to perform</param>
         public static void ForEach<T>(this IEnumerable<T> enumeration, Action<T> action)
         {
             foreach (var number in enumeration)
             {
                 action?.Invoke(number);
             }
-        }
-
-        public static string RemoveSpaces(this string str)
-        {
-            return Regex.Replace(str, @"\s+", "");
         }
     }
 }

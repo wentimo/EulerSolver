@@ -27,7 +27,7 @@ namespace EulersSolver.Problems
                 string logMessage;
                 int product;
                 if (!ConfirmUnusuality(v, out logMessage, out product)) continue;
-                EulersLogger.DebugLog(logMessage);
+                DebugLogger.AddLine(logMessage);
                 hash.Add(product);
             }
 

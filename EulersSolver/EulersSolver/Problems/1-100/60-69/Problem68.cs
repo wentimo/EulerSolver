@@ -166,7 +166,7 @@ namespace EulersSolver.Problems
                 if (gon.SumsEquals()) ListOfGons.Add(gon.ToDisplayString());
             }
             ListOfGons.Sort();
-            ListOfGons.ForEach(EulersLogger.DebugLog);
+            ListOfGons.ForEach(DebugLogger.AddLine);
             return ListOfGons.Last();
         }
     }

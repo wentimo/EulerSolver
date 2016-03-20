@@ -30,7 +30,7 @@
                 //string output = $"1/{i, 2} = {sdec}";
                 var sdec = (decimal)(1.0 / i);
                 string output = $"1/{i,2} = {sdec,32}";
-                EulersLogger.DebugLog(output);
+                DebugLogger.AddLine(output);
             }
 
             return 1.ToString();

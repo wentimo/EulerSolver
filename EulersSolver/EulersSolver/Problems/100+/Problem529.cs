@@ -58,7 +58,7 @@ namespace EulersSolver.Problems
             foreach (int value in intList.Where(value => value > intList[3]))
             {
                 int index = intList.IndexOf(value);
-                EulersLogger.DebugLog($"Value is {value}, Index is {index}");
+                DebugLogger.AddLine($"Value is {value}, Index is {index}");
             }
             //Console.WriteLine("\nExists: Part with Id=1444: {0}",
             //parts.Exists(x => x.PartId == 1444));
@@ -96,7 +96,7 @@ namespace EulersSolver.Problems
 
         private static bool isNumber10Friendly(int num, bool assumeRight = false)
         {
-            EulersLogger.DebugLog(num);
+            DebugLogger.AddLine(num);
             var number = digitArr(num);
 
             var increment = 0;
@@ -134,7 +134,7 @@ namespace EulersSolver.Problems
             number.Skip(startIndex - left).Take(right + left + 1).ForEach(x => output += x);
             var str = "";
             number.ForEach(num => str += num.ToString());
-            EulersLogger.DebugLog($"Called Is10Friendly({startIndex},{left},{right}) : {output,-7}, {str}");
+            DebugLogger.AddLine($"Called Is10Friendly({startIndex},{left},{right}) : {output,-7}, {str}");
 
             //var list = new List<int>();
 

@@ -35,7 +35,7 @@ namespace EulersSolver.Problems
             DateTime datVar = new DateTime(1901, 1, 1);
             while (datVar.Year < 2001)
             {
-                EulersLogger.DebugLog(String.Format("{0,2}/01/{1,4} : {2}", datVar.Month, datVar.Year, datVar.DayOfWeek));
+                DebugLogger.AddLine(String.Format("{0,2}/01/{1,4} : {2}", datVar.Month, datVar.Year, datVar.DayOfWeek));
                 if (datVar.DayOfWeek == DayOfWeek.Sunday)
                 {
                     sundaysOnFirstOfMonth++;
@@ -115,7 +115,7 @@ namespace EulersSolver.Problems
         private static void LogDayOfWeekForFirstOfMonth(int month, int year, int day)
         {
             string dayName = Enum.GetName(typeof(DayOfWeek), day);
-            EulersLogger.DebugLog(String.Format("{0,2}/01/{1,4} : {2}", month, year, dayName));
+            DebugLogger.AddLine(String.Format("{0,2}/01/{1,4} : {2}", month, year, dayName));
         }
     }
 }

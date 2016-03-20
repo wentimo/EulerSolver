@@ -34,7 +34,7 @@ namespace EulersSolver.Problems
             amicablePairs = amicablePairs.Distinct().ToList();
             foreach (var amicableInstance in amicablePairs)
             {
-                EulersLogger.DebugLog($"D({amicableInstance.Index,4}) = {amicableInstance.Value,4}");
+                DebugLogger.AddLine($"D({amicableInstance.Index,4}) = {amicableInstance.Value,4}");
             }
             var answer = amicablePairs.Select(t => t.Value).Sum();
             return answer.ToString();

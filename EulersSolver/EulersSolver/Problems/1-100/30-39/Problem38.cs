@@ -51,7 +51,7 @@ namespace EulersSolver.Problems
             }
             listOfNumbers.Sort();
             listOfNumbers.Reverse();
-            EulersLogger.DebugLog(listOfNumbers[0]);
+            DebugLogger.AddLine(listOfNumbers[0]);
             //listOfNumbers.ForEach(x => DebugLog(x));
 
             int answer = 1;

@@ -25,7 +25,7 @@ namespace EulersSolver.Problems
                 if (value % i != 0) continue;
                 divisors.Add(i);
                 divisors.Add((int)(value / i));
-                EulersLogger.DebugLog(string.Format("{0,10} * {1,10} = {2,10} | {0,10} is{3}a prime", i, value / i, value, checkValuePrime[i] ? " " : " not "));
+                DebugLogger.AddLine(string.Format("{0,10} * {1,10} = {2,10} | {0,10} is{3}a prime", i, value / i, value, checkValuePrime[i] ? " " : " not "));
 
                 if (checkValuePrime[i] && i > answer)
                 {

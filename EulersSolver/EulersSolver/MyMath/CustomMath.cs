@@ -8,28 +8,6 @@ namespace EulersSolver.MyMath
 {
     public class CustomMath
     {
-        #region Math Functions
-
-        public int IntPow(int x, uint pow)
-        {
-            int ret = 1;
-            while (pow != 0)
-            {
-                if ((pow & 1) == 1)
-                    ret *= x;
-                x *= x;
-                pow >>= 1;
-            }
-            return ret;
-        }
-
-        public int iFactorial(int i)
-        {
-            if (i <= 1)
-                return 1;
-            return i * iFactorial(i - 1);
-        }
-
         public static BigInteger bigFactorial(int i)
         {
             if (i <= 1)
@@ -107,12 +85,14 @@ namespace EulersSolver.MyMath
             values[pos2] = tmp;
         }
 
+        /// <summary>
+        ///  Returns a list of prime numbers between 1 and max.
+        /// </summary>
+        /// <param name="max"></param>
         public static List<int> GetListOfPrimes(int max)
         {
             var isPrime = MakeSieve(max);
             return new List<int>(Enumerable.Range(1, max).Where(x => isPrime[x]));
         }
-
-        #endregion Math Functions
     }
 }

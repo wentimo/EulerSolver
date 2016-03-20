@@ -47,11 +47,11 @@ namespace EulersSolver.Problems
                 i++;
             }
 
-            EulersLogger.DebugLog(i);
+            DebugLogger.AddLine(i);
 
             var sum = new BigInteger();
             curiousNumbers.ForEach(x => sum += x);
-            curiousNumbers.ForEach(EulersLogger.DebugLog);
+            curiousNumbers.ForEach(DebugLogger.AddLine);
 
             return sum.ToString();
         }

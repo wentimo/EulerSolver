@@ -32,7 +32,7 @@ namespace EulersSolver.Problems
                     number = i;
                     length = len;
                 }
-                EulersLogger.DebugLog($"{i} : {len}");
+                DebugLogger.AddLine($"{i} : {len}");
             }
 
             return number.ToString();

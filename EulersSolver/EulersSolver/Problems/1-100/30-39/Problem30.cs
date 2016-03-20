@@ -41,7 +41,7 @@ namespace EulersSolver.Problems
                 if (i == sum) listOfNumbers.Add(i);
             }
 
-            listOfNumbers.ForEach(EulersLogger.DebugLog);
+            listOfNumbers.ForEach(DebugLogger.AddLine);
 
             return listOfNumbers.Sum().ToString();
         }

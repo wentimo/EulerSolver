@@ -25,7 +25,7 @@
                         if (i * i + j * j == k * k && i + j + k == 1000)
                         {
                             answer = i * j * k;
-                            EulersLogger.DebugLog($"({i})^2 + ({j})^2 = ({k})^2, {i} + {j} + {k} = 1000");
+                            DebugLogger.AddLine($"({i})^2 + ({j})^2 = ({k})^2, {i} + {j} + {k} = 1000");
                         }
                     }
                 }
