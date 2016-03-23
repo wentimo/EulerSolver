@@ -35,9 +35,33 @@ namespace EulersSolver.Problems
             //DebugLogger.AddLine(x);
 
             // var x = S_old(10);
-            var x = S(1000);
-            x = S_old(1000);
-            
+            var oldhashSet = new List<Tuple<int, int>>();
+            var newhashSet = new List<Tuple<int, int>>();
+            var diff = new List<Tuple<int, int>>();
+
+            var x = S_old(100, ref oldhashSet);
+
+            DebugLogger.AddLine(x);
+            x = S(100, ref newhashSet);
+            DebugLogger.AddLine(x);
+
+            if (oldhashSet.Count > newhashSet.Count)
+            {
+                diff = oldhashSet.Except(newhashSet).ToList();
+            }
+            else
+            {
+                diff = oldhashSet.Except(newhashSet).ToList();
+            }
+
+            if (diff.Any())
+            {
+                var message = oldhashSet.Count > newhashSet.Count ? "Underloaded" : "Overloaded";
+                DebugLogger.AddLine($"New Hash Set {message}\n");
+                DebugLogger.AddLine("Difference:\n");
+                diff.ForEach(DebugLogger.AddLine);
+            }
+
             return x.ToString();
         }
 
@@ -62,29 +86,49 @@ namespace EulersSolver.Problems
         //    return sum;
         //}
 
-        private BigInteger S(int n)
+        private BigInteger S(int n, ref List<Tuple<int, int>> TupleList)
         {
             BigInteger sum = 0;
             int count = 0;
+            int innerCount = 0;
 
             for (int i = n; i > 0; i--)
             {
-                for (int j = i / 2; j > 0; j--)
+                innerCount = 0;
+                for (int j = i / 2; j > 1; j--)
                 {
-                    int incr = P(i, j);
-                    //if (incr > 0)
-                    //{
-                    //    DebugLogger.AddLine($"P({i,-3},{j,-3}) = {incr}, Sum = {sum + incr} (+{incr})");
-                    //}
-                    sum += incr;
+                    if (j == 2 && isPrime(i, i.Sqrt()))
+                    {
+                      if (isPrime(i - 2, (i - 2).Sqrt()))
+                        {
+                            innerCount++;
+                            sum++;
+                        }
+                    }
+                    else
+                    {
+                        innerCount++;
+                        sum++;
+                    }
+
+                    TupleList.Add(new Tuple<int, int>(i, j));
                     count++;
+                    //int incr = P(i, j);
+                    ////if (incr > 0)
+                    ////{
+                    ////    DebugLogger.AddLine($"P({i,-3},{j,-3}) = {incr}, Sum = {sum + incr} (+{incr})");
+                    ////}
+                    //sum += incr;
+                    //count++;
                 }
+
+                if (isPrime(i, i.Sqrt())) sum++;
             }
             DebugLogger.AddLine($"new: {count}");
             return sum;
         }
 
-        private BigInteger S_old(int n)
+        private BigInteger S_old(int n, ref List<Tuple<int, int>> TupleList)
         {
             //Let S(n)be the sum of all P(i, k) over 1 ≤ i, k ≤ n.
             //For example, S(10) = 20, S(100) = 2402, and S(1000) = 248838.
@@ -103,7 +147,12 @@ namespace EulersSolver.Problems
                     //{
                     //    DebugLogger.AddLine($"P({i,-3},{j,-3}) = {incr}, Sum = {sum + incr} (+{incr})");
                     //}
-                    sum += incr;
+                    //sum += incr;
+                    if (incr > 0)
+                    {
+                        sum++;
+                        TupleList.Add(new Tuple<int, int>(i, j));
+                    }
                     count++;
                     if (started && incr == 0) break;
                 }
