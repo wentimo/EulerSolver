@@ -99,6 +99,9 @@ namespace EulersSolver.Problems
         }
 
         // Attainable reprsents the idea that the value can be created by choosing X items from the list of primes.
+        // Gotta giving credit where it's due! 
+        // Shoutout to mellamokb for this code, I modified it slightly for my purposes:
+        // https://stackoverflow.com/questions/36122487/pick-a-varying-number-of-item-combinations-from-a-list/36122841#36122841
         public bool DetermineValueIsAttainable(int value, int numberOfElements, List<int> Primes)
         {
            // var combinedInts = new List<int>();

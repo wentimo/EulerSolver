@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-
+// TODO Consider creating a help menu
+// TODO Consider moving prompts to resource file
 namespace EulersSolver
 {
-    // TODO Consider creating a help menu
-    // TODO Consider moving prompts to resource file
-
-    public class EulersConsole
+    public static class EulersConsole
     {
         private const string PromptString = "> Options: Enter #. (Create). (Q)uit. (L)ist. (C)lear. (D)ebug. (V)erbose.";
 

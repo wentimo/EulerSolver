@@ -11,6 +11,7 @@ namespace EulersSolver.Extensions
         /// <summary>
         /// Rob created this method on stackoverflow question: 
         /// stackoverflow.com/questions/36122487/pick-a-varying-number-of-item-combinations-from-a-list/36122841#36122841
+        /// Thanks for the help sir!
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="elements"></param>
