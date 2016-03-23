@@ -91,8 +91,13 @@ namespace EulersSolver.MyMath
         /// <param name="max"></param>
         public static List<int> GetListOfPrimes(int max)
         {
+            var returnList = new List<int>();
             var isPrime = MakeSieve(max);
-            return new List<int>(Enumerable.Range(1, max).Where(x => isPrime[x]));
+            for (int i = 0; i <= max; i++) if (isPrime[i]) returnList.Add(i);
+            return returnList;
+
+            //var isPrime = MakeSieve(max);
+            //return new List<int>(Enumerable.Range(1, max).Where(x => isPrime[x]));
         }
     }
 }

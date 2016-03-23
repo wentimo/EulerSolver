@@ -234,6 +234,11 @@ namespace EulersSolver
             var answer = BaseProblem.GetAnswer(ProblemNumber, verbose);
 
             string _fileBody = _stringBuilder.ToString();
+            if (verbose)
+            {
+                _fileBody = answer + Environment.NewLine + Environment.NewLine + _fileBody;
+            }
+
             if (_fileBody.Length > 0)
             {
                 File.WriteAllText(_filePath, _fileBody);
