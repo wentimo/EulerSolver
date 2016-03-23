@@ -21,14 +21,14 @@
             Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
             */
 
-            for (double i = 2; i <= 20; i++)
+            for (double i = 2; i <= 15; i++)
             {
                 //var dec = new decimal(1.0 / i);
                 //var sdec = dec.ToString();
                 //var obj = dec.ToString();
                 //string output = $"1/{i,2} = {obj}";
                 //string output = $"1/{i, 2} = {sdec}";
-                var sdec = (decimal)(1.0 / i);
+                var sdec = (decimal)(1.0/i);
                 string output = $"1/{i,2} = {sdec,32}";
                 DebugLogger.AddLine(output);
             }

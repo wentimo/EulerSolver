@@ -21,7 +21,7 @@ namespace EulersSolver
         {
             if (args == null) throw new ArgumentNullException(nameof(args));
             HashSet<int> solved = new HashSet<int>();
-            bool verbose = false;
+            bool verbose = true;
             int problemNumber = -1, lastProblem = -1;
             string userInput = Prompt(PromptString);
 

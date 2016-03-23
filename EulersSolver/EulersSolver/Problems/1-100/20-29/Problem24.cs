@@ -24,19 +24,19 @@ namespace EulersSolver.Problems
             */
 
             var lexico = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            List<string> Ben = new List<string>();
+            List<string> perms = new List<string>();
 
             foreach (var x in CustomMath.Permutations(lexico))
             {
-                Ben.Add(string.Join("", x));
+                perms.Add(string.Join("", x));
             }
 
-            Ben.Sort();
+            perms.Sort();
 
-            DebugLogger.AddLine(Ben[999999]);
+            DebugLogger.AddLine(perms[999999]);
 
             //int answer = 1;
-            return Ben[999999].ToString();
+            return perms[999999].ToString();
         }
     }
 }

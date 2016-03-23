@@ -9,6 +9,23 @@ namespace EulersSolver.Extensions
     public static class MyExtensions
     {
         /// <summary>
+        /// Rob created this method on stackoverflow question: 
+        /// stackoverflow.com/questions/36122487/pick-a-varying-number-of-item-combinations-from-a-list/36122841#36122841
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="elements"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public static IEnumerable<IEnumerable<T>> Combinations<T>(this IEnumerable<T> elements, int? k = null)
+        {
+            if (!k.HasValue)
+                k = elements.Count();
+
+            return k == 0 ? new[] { new T[0] } :
+               elements.SelectMany((e, i) => elements.Skip(i).Combinations(k - 1).Select(c => (new[] { e }).Concat(c)));
+        }
+
+        /// <summary>
         ///  Gets the square root of an integer
         /// </summary>
         /// <param name="integer"></param>
