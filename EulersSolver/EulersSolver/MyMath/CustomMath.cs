@@ -15,6 +15,14 @@ namespace EulersSolver.MyMath
             return i * bigFactorial(i - 1);
         }
 
+        public static List<int> GetFibonacciNumbers(int max)
+        {
+            var returnList = new List<int>();
+
+
+            return returnList;
+        }
+
         //https://stackoverflow.com/questions/239865/best-way-to-find-all-factors-of-a-given-number-in-c-sharp
         public static List<int> Factor(int number)
         {

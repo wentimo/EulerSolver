@@ -1,9 +1,9 @@
-﻿using EulersSolver.MyMath;
+﻿using EulersSolver.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using EulersSolver.Extensions;
 using System.Numerics;
+using EulersSolver.MyMath;
 
 namespace EulersSolver.Problems
 {
@@ -26,277 +26,68 @@ namespace EulersSolver.Problems
 
             */
 
-            //var primes = CustomMath.GetListOfPrimes(10000);
-            //DebugLogger.AddLine(P(10, 2, primes));
-            //Console.WriteLine("What fibonacci number? (3-44)");
-            //int f = int.Parse(Console.ReadLine());
-            //var x = F(44);
-            test();
-            //DebugLogger.AddLine(x);
+            int x = 100;
 
+            var primes = CustomMath.GetListOfPrimes(x);
+            DebugLogger.AddLine(primes.Count);
 
-            // var x = S_old(10);
+            var dprimeCount = x/Math.Log(x);
+            DebugLogger.AddLine(dprimeCount);
 
-            return "1".ToString();
+            var y = S_new(100);
+            return y.ToString();
         }
         
-        void test ()
+        private BigInteger F(int k)
         {
-            var oldhashSet = new List<Tuple<int, int>>();
-            var newhashSet = new List<Tuple<int, int>>();
-            var diff = new List<Tuple<int, int>>();
+            if (k == 0) return 0;
+            if (k < 3) return 1;
 
-            var numCheck = 100;
-            //var x = S_Ben_2(numCheck, ref oldhashSet);
-            //var x = S_Ben(numCheck);
-            var x = S_new(numCheck, ref newhashSet);
-
-            //DebugLogger.AddLine($"Old Hash Set : {oldhashSet.Count()}");
-            //oldhashSet.ForEach(DebugLogger.AddLine);
-
-            DebugLogger.AddLine($"New Hash Set : {newhashSet.Count()}");
-            newhashSet.ForEach(DebugLogger.AddLine);
-
-
-            //if (oldhashSet.Count > newhashSet.Count)
-            //{
-            //    diff = oldhashSet.Except(newhashSet).ToList();
-            //}
-            //else
-            //{
-            //    diff = newhashSet.Except(oldhashSet).ToList();
-            //}
-
-            //if (diff.Any())
-            //{
-            //    DebugLogger.AddLine($"Old Hash Set : {oldhashSet.Count()}");
-            //    DebugLogger.AddLine($"New Hash Set : {newhashSet.Count()}");
-            //    DebugLogger.AddLine("Differences:\n");
-            //    diff.ForEach(DebugLogger.AddLine);
-            //}
-        }
-
-        //private BigInteger F(int k)
-        //{
-        //    if (k == 0) return 0;
-        //    if (k == 1) return 1;
-
-        //    int fibX = 0, fibY = 1, fibZ = 0, count = 2;
-        //    BigInteger sum = 0;
-
-        //    while (count <= k)
-        //    {
-        //        fibZ = fibX + fibY;
-        //        fibX = fibY;
-        //        fibY = fibZ;
-
-        //        if (count >= 3) sum += S(fibZ);
-        //        count++;
-        //    }
-
-        //    return sum;
-        //}
-
-        //private BigInteger S(int n)
-
-        private BigInteger S_Ben_2(int n, ref List<Tuple<int, int>> TupleList)
-        {
+            int fibX = 0, fibY = 1, fibZ = 0, count = 2;
             BigInteger sum = 0;
+            var x = new List<Tuple<int, int>>();
 
-            //for (int i = 3; i <= n; i++)
-            //{
-            //    int halfI = i / 2;
-
-            //    int ThisTurn = ((halfI) * ((halfI) + 1) / 2);
-            //    if (ThisTurn > 0) {
-            //        sum += ThisTurn;
-            //        DebugLogger.AddLine($"InProgress... i = {i}, halfI = {halfI}, sum = {sum} (+ {ThisTurn})");
-            //    }
-            //    //TupleList.Add(new Tuple<int, int>(n, i));
-            //}
-
-            //TODO * Bad output for compare tool
-            //for (int i = 3; i <= n; i++)
-            //{
-            //    for (int j = 3; j <= n/2; j++)
-            //    {
-            //        TupleList.Add(new Tuple<int, int>(n, i));
-            //    }
-            //}
-
-            for (int i = n; i > 1; i--)
+            while (count <= k)
             {
-                for (int j = i/2; j > 0; j--)
-                {
+                fibZ = fibX + fibY;
+                fibX = fibY;
+                fibY = fibZ;
 
-                    if(i==10 && j == 2)
-                    {
-                        string bp = "";
-                    }
-                    if (j == 2)
-                    {
-                        if (i % 2 == 0 || isPrime(i - 2, (i - 2).Sqrt()))
-                        {
-                            sum++;
-                            TupleList.Add(new Tuple<int, int>(i, j));
-                        }
-                    }
-                    else if (j == 1)
-                    {
-                        if (isPrime(i, i.Sqrt()))
-                        {
-                            sum++;
-                            //DebugLogger.AddLine($"P({i, 3}, {1, 3}) = 1");
-                            TupleList.Add(new Tuple<int, int>(i, j));
-                        }
-                    }
-                    else
-                    {
-                        TupleList.Add(new Tuple<int, int>(i, j));
-                        sum++;
-                    }
-                }
-
+                if (count > 2) sum += S(fibZ, ref x);
+                count++;
             }
-            DebugLogger.AddLine($"Sum = {sum}");
-            
-            return sum;
-        }
-
-        private BigInteger S_Ben(int n)//, ref List<Tuple<int, int>> TupleList)
-        {
-            BigInteger sum = 0;
-
-            //GIVEN S(N)
-            //If S(N),  N - 2 = x
-            //(x * (x + 1))/2 = B
-            //(B * (B + 1))/2 = sum
-
-            //int x, B;
-            //x = n - 2;
-            //B = (x * (x + 1)) / 2;
-            //sum = (B * (B + 1)) / 2;
-
-
-
-            for(int i = 3; i <= n; i++)
-            {
-                sum = sum + ((i / 2) - 2);
-                
-            }
-            for(int i = n; i > 0; i--)
-            {
-                for(int j = 1; j < 2; j++)
-                {
-                    if (j == 2)
-                    {
-                        if (i % 2 == 0 || isPrime(i - 2, (i - 2).Sqrt())) { sum++; }
-                    }else
-                    {
-                        if (isPrime(i, i.Sqrt()))
-                        {
-                            sum++;
-                            //DebugLogger.AddLine($"P({i, 3}, {1, 3}) = 1");
-                            //TupleList.Add(new Tuple<int, int>(i, 1));
-                        }
-                    }
-                }
-
-            }
-            DebugLogger.AddLine($"Sum = {sum}");
-
-
-
-
-            //int i = n;
-            //int x = 1;
-            //for (int j = i / 2; j > 2; j--)
-            //{
-            //    DebugLogger.AddLine($"x = {x} : i = {i} : j = {j}");
-            //    sum = sum + (((j * (j + 1)) / 2)-3);
-            //    x = x + 2;
-            //    DebugLogger.AddLine($"sum = {sum}");
-            //    //TupleList.Add(new Tuple<int, int>(i, j));
-            //}
-
-
-            //(MUST ALSO SOLVE FOR ALL (N,y) PAIRS WHERE y IN {1, 2})
-
-
-            //for (int i = n; i > 0; i--)
-            //{
-            //    for (int j = i / 2; j > 1; j--)
-            //    {
-            //        if (j == 2)
-            //        {
-            //            if (i % 2 == 0 || isPrime(i - 2, (i - 2).Sqrt()))
-            //            {
-            //                sum++;
-            //                DebugLogger.AddLine($"P({i,3}, {j,3}) = 1");
-            //               // TupleList.Add(new Tuple<int, int>(i, j));
-            //            }
-            //        }
-            //        else
-            //        {
-            //            sum++;
-            //            DebugLogger.AddLine($"P({i,3}, {j,3}) = 1");
-            //            //TupleList.Add(new Tuple<int, int>(i, j));
-            //        }
-            //    }
-
-            //    if (isPrime(i, i.Sqrt()))
-            //    {
-            //        sum++;
-            //        DebugLogger.AddLine($"P({i,3}, {1,3}) = 1");
-            //       // TupleList.Add(new Tuple<int, int>(i, 1));
-            //    }
-            //}
-
 
             return sum;
         }
 
-        private BigInteger S_new(int n, ref List<Tuple<int, int>> TupleList)
+        private BigInteger S_new(int n)
         {
             BigInteger sum = 0;
 
-            for (int i = n; i > 0; i--)
+            // I think I can change this into an equation somehow.
+            for (int i = n; i > 5; i--)
             {
-                for (int j = i / 2; j > 1; j--)
-                {
-                    //if (j == 2)
-                    //{
-                    //    if (i % 2 == 0 || isPrime(i - 2, (i - 2).Sqrt()))
-                    //    {
-                    //        sum++;
-                    //        //DebugLogger.AddLine($"P({i,3}, {j,3}) = 1");
-                    //        TupleList.Add(new Tuple<int, int>(i, j));
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    sum++;
-                    //    //DebugLogger.AddLine($"P({i,3}, {j,3}) = 1");
-                    //    TupleList.Add(new Tuple<int, int>(i, j));
-                    //}
-                }
+                sum += i / 2 - 2;
+            }            
+            DebugLogger.AddLine($"j >= 3 logic : 0 (+{sum})");
+            var diff = sum;
 
-                var sumz = (3 * (3 + i / 2)) / 2;
+            sum += n / 2;
+            DebugLogger.AddLine($"j == 2 && i % 2 == 0 logic : {sum} (+{sum - diff})");
+            diff = sum;
 
-                //if (i % 2 == 0 || isPrime(i - 2, (i - 2).Sqrt()))
-                //{
-                //    sum++;
-                //    //DebugLogger.AddLine($"P({i,3}, {j,3}) = 1");
-                //    TupleList.Add(new Tuple<int, int>(i, j));
-                //}
+            var primes = CustomMath.GetListOfPrimes(n);
+            int primeCount = primes.Count;
 
-                if (isPrime(i, i.Sqrt()))
-                {
-                    sum++;
-                    //DebugLogger.AddLine($"P({i, 3}, {1, 3}) = 1");
-                    TupleList.Add(new Tuple<int, int>(i, 1));
-                }
-            }
+            //var dprimeCount = n/Math.Log(n);
+            //var primeCount = (int)dprimeCount;
+
+            sum += primeCount - 2;
+            DebugLogger.AddLine($"j == 2 && i % 2 == 1 logic : {sum} (+{sum - diff})");
+            diff = sum;
+
+            sum += primeCount;
+            DebugLogger.AddLine($"j == 1 logic : {sum} (+{sum - diff})");
             return sum;
         }
 
@@ -310,7 +101,7 @@ namespace EulersSolver.Problems
                 {
                     if (j == 2)
                     {
-                        if (i % 2 == 0 || isPrime(i - 2, (i - 2).Sqrt()))
+                        if (i % 2 == 0 || isPrime(i - 2))
                         {
                             sum++;
                             //DebugLogger.AddLine($"P({i,3}, {j,3}) = 1");
@@ -325,7 +116,7 @@ namespace EulersSolver.Problems
                     }
                 }
 
-                if (isPrime(i, i.Sqrt()))
+                if (isPrime(i))
                 {
                     sum++;
                     //DebugLogger.AddLine($"P({i, 3}, {1, 3}) = 1");
@@ -394,7 +185,7 @@ namespace EulersSolver.Problems
             }
             else
             {
-                if (t == 1 && isPrime(n, n.Sqrt()))
+                if (t == 1 && isPrime(n))
                 {
                     //DebugLogger.AddLine(line);
                     return 1;
@@ -402,7 +193,7 @@ namespace EulersSolver.Problems
                 if (t == 2)
                 {
                     if (n <= 3) return 0;
-                    if (isPrime(n - 2, (n - 2).Sqrt()))
+                    if (isPrime(n - 2))
                     {
                         //DebugLogger.AddLine(line);
                         return 1;
@@ -418,8 +209,9 @@ namespace EulersSolver.Problems
             }
         }
 
-        public static bool isPrime(int number, int boundary)
+        public static bool isPrime(int number)
         {
+            var boundary = number.Sqrt();
             if (number < 2) return false;
             if (number == 2) return true;
 
