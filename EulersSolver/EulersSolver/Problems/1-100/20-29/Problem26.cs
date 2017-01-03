@@ -1,4 +1,6 @@
-﻿namespace EulersSolver.Problems
+﻿using EulersSolver.Utilities;
+
+namespace EulersSolver.Problems
 {
     internal class Problem26 : BaseProblem
     {
@@ -28,7 +30,7 @@
                 //var obj = dec.ToString();
                 //string output = $"1/{i,2} = {obj}";
                 //string output = $"1/{i, 2} = {sdec}";
-                var sdec = (decimal)(1.0/i);
+                var sdec = (decimal)(1.0 / i);
                 string output = $"1/{i,2} = {sdec,32}";
                 DebugLogger.AddLine(output);
             }

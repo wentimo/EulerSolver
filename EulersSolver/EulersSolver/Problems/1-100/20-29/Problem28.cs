@@ -1,6 +1,4 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using EulersSolver.Utilities;
 
 namespace EulersSolver.Problems
 {
@@ -26,7 +24,7 @@ namespace EulersSolver.Problems
             var spiralCount = 1001;
             int count = 1, point = 1, increment = 2;
             DebugLogger.AddLine($"Start at {1}:");
-            
+
             // This was deceptively confusing to figure out.
             for (int i = 1; i < (spiralCount + 1) / 2; i++)
             {

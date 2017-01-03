@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using EulersSolver.Utilities;
+using System.Numerics;
 
 namespace EulersSolver.Problems
 {

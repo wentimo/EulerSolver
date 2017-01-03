@@ -47,9 +47,11 @@
   <ItemGroup>
     <Compile Include="EulersSolver.cs" />
     <Compile Include="Extensions\MyExtensions.cs" />
-    <Compile Include="MyMath\CustomMath.cs" />
+    <Compile Include="Utilities\DebugLogger.cs" />
+    <Compile Include="Utilities\MyMath\CustomMath.cs" />
     <Compile Include="Problems\1-100\20-29\Problem20.cs" />
     <Compile Include="Problems\1-100\20-29\Problem28.cs" />
+    <Compile Include="Problems\100+\Problem551.cs" />
     <Compile Include="Problems\BaseProblem.cs" />
     <Compile Include="Problems\1-100\1-9\Problem1.cs" />
     <Compile Include="Problems\1-100\10-19\Problem10.cs" />

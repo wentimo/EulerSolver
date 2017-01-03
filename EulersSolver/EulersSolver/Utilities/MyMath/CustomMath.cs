@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
 
 namespace EulersSolver.MyMath
@@ -244,5 +243,4 @@ namespace StackOverflow_Math
             return primes;
         }
     }
-
 }

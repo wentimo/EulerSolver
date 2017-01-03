@@ -1,8 +1,5 @@
-﻿using EulersSolver.Extensions;
-using StackOverflow_Math;
-using EulersSolver.MyMath;
-using System;
-using System.Collections.Generic;
+﻿using EulersSolver.MyMath;
+using EulersSolver.Utilities;
 using System.Linq;
 using System.Numerics;
 
@@ -48,15 +45,14 @@ namespace EulersSolver.Problems
             var prevValue = S(1);
             foreach (var value in Enumerable.Range(2, 38))
             {
-                
                 string message = $"S({value}) = {S(value)}";
-              //  DebugLogger.AddLine(message);
+                //  DebugLogger.AddLine(message);
             }
             //var y = S(100);
             // return y.ToString();
             return 1.ToString();
         }
-     
+
         private BigInteger S(int n)
         {
             BigInteger sum = 0;
@@ -65,8 +61,8 @@ namespace EulersSolver.Problems
             for (int i = n; i > 5; i--)
             {
                 sum += i / 2 - 2;
-            }            
-            DebugLogger.AddLine($"S({n, 2}) = 0 (+{sum})");
+            }
+            DebugLogger.AddLine($"S({n,2}) = 0 (+{sum})");
             var diff = sum;
 
             sum += n / 2;
@@ -74,9 +70,9 @@ namespace EulersSolver.Problems
             diff = sum;
 
             var primes = CustomMath.GetListOfPrimes(n);
-           // var primes = OutsideMath.SieveOfEratosthenes(n);
+            // var primes = OutsideMath.SieveOfEratosthenes(n);
             int primeCount = primes.Count;
-            
+
             sum += primeCount - 2;
             //DebugLogger.AddLine($"j == 2 && i % 2 == 1 logic : {sum} (+{sum - diff})");
             diff = sum;

@@ -1,4 +1,6 @@
-﻿namespace EulersSolver.Problems
+﻿using EulersSolver.Utilities;
+
+namespace EulersSolver.Problems
 {
     internal class Problem9 : BaseProblem
     {

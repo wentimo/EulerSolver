@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EulersSolver.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 

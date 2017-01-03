@@ -1,4 +1,5 @@
 using EulersSolver.MyMath;
+using EulersSolver.Utilities;
 using System.Collections.Generic;
 using System.Text;
 

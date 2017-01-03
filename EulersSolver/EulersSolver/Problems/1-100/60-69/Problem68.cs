@@ -1,4 +1,5 @@
 using EulersSolver.MyMath;
+using EulersSolver.Utilities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -98,7 +99,7 @@ namespace EulersSolver.Problems
             {
                 if (perms.ToString().StartsWith("432"))
                 {
-                    string bp = "";
+                    // string bp = "";
                 }
                 List<Triplet> triplets = new List<Triplet>();
                 int lead = x[0];
@@ -134,7 +135,7 @@ namespace EulersSolver.Problems
                     Triplet trip = new Triplet(p1, p2, p3);
                     if (p1 == 4 && p2 == 3 && p3 == 2)
                     {
-                        string bp = "";
+                        //string bp = "";
                     }
 
                     triplets.Add(trip);
@@ -160,7 +161,7 @@ namespace EulersSolver.Problems
                 var displaystring = gon.ToDisplayString();
                 if (displaystring == "432621513")
                 {
-                    string bp = "";
+                    //string bp = "";
                 }
 
                 if (gon.SumsEquals()) ListOfGons.Add(gon.ToDisplayString());

@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using EulersSolver.Extensions;
+﻿using EulersSolver.Utilities;
+using System.Linq;
 
 namespace EulersSolver.Problems
 {
@@ -14,14 +14,14 @@ namespace EulersSolver.Problems
             var range = Enumerable.Range(1, 999);
             var filteredRange = range.Where(t => t % 3 == 0 || t % 5 == 0);
 
-            // This line is enabled by the DebugLogger static class. If Solve() is called from the inside 
+            // This line is enabled by the DebugLogger static class. If Solve() is called from the inside
             // DebugLogger.LogAnswer() this line will be added to a Problem1.Debug.txt file. Otherwise it is sent
             // to Console.WriteLine();
             DebugLogger.AddLine("Example Debug Line for Problem 1");
 
             /*Examples you can uncomment for output.*/
 
-            //// Ex 1. Displays every number in 1-999 in order that are divisible by 3 or 5 
+            //// Ex 1. Displays every number in 1-999 in order that are divisible by 3 or 5
             //foreach (int number in filteredRange)
             //{
             //    DebugLogger.AddLine(number);
@@ -30,7 +30,7 @@ namespace EulersSolver.Problems
 
             //// Ex 2. Displays the count of numbers in 1-999 that are divisible by 3 and 5
             //new int[] {3,5}.ForEach
-            //(n => 
+            //(n =>
             //    DebugLogger.AddLine($"Numbers divisible by {n} : {range.Count(x => x % n == 0)}")
             //);
 

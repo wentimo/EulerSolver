@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using System.Text.RegularExpressions;
 
 namespace EulersSolver.Extensions
 {
     public static class MyExtensions
     {
         /// <summary>
-        /// Rob created this method on stackoverflow question: 
+        /// Rob created this method on stackoverflow question:
         /// stackoverflow.com/questions/36122487/pick-a-varying-number-of-item-combinations-from-a-list/36122841#36122841
         /// Thanks for the help sir!
         /// </summary>

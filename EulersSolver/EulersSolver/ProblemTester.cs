@@ -15,7 +15,7 @@
             // Is the answer to Problem 1 not equal to 1? True.
             //Assert.AreNotEqual("1", BaseProblem.GetAnswer(1));
 
-            Assert.AreEqual("669171001", BaseProblem.GetAnswer(28)); 
+            Assert.AreEqual("669171001", BaseProblem.GetAnswer(28));
         }
     }
 }
