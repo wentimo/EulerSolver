@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EulersSolver</RootNamespace>
     <AssemblyName>EulersSolver</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,7 @@
   <ItemGroup>
     <Compile Include="EulersSolver.cs" />
     <Compile Include="Extensions\MyExtensions.cs" />
+    <Compile Include="Problems\1-100\40-49\Problem43.cs" />
     <Compile Include="Utilities\DebugLogger.cs" />
     <Compile Include="Utilities\MyMath\CustomMath.cs" />
     <Compile Include="Problems\1-100\20-29\Problem20.cs" />
